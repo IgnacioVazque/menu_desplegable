@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+     <!-- Esta etiqueta META sirve para problemas por compatibilidad,
+      me parece tya no es recomdable a partirt de HTML5 -->
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <!-- ----------------------------------------------- -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú desplegable</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Estructura del menu -->
+    <nav class="menu">
+        <section class="menu-container">
+            <h1 class="menu-logo">Ignacio vazquez</h1>
+            <ul class="menu-links">
+                <li class="menu-item">
+                    <a href="" class="menu-link">Home</a>
+                </li>
+    
+                <li class="menu-item menu-item--show">
+                    <a href="#" class="menu-link">About <img src="assets/arrow.svg" class="menu-arrow" alt=""></a>
+    
+                    <ul class="menu-nesting">
+                        <li class="menu-inside">
+                            <a href="#" class="menu-link menu-link--inside">About 1</a>
+                        </li>
+                        <li class="menu-inside">
+                            <a href="#" class="menu-link menu-link--inside">About 2</a>
+                        </li>
+                        <li class="menu-inside">
+                            <a href="#" class="menu-link menu-link--inside">About 3</a>
+                        </li>
+                    </ul>
+                </li>
+    
+                <li class="menu-item menu-item--show">
+                    <a href="#" class="menu-link">Projects <img src="assets/arrow.svg" class="menu-arrow" alt=""></a>
+    
+                    <ul class="menu-nesting">
+                        <li class="menu-inside">
+                            <a href="#" class="menu-link menu-link--inside">Project 1</a>
+                        </li>
+                        <li class="menu-inside">
+                            <a href="#" class="menu-link menu-link--inside">Project 2</a>
+                        </li>
+                        <li class="menu-inside">
+                            <a href="#" class="menu-link menu-link--inside">Project 3</a>
+                        </li>
+                    </ul>
+                </li>
+    
+                <li class="menu-item">
+                    <a href="" class="menu-link">Contact</a>
+                </li>
+            </ul>
+
+            <!-- elementos para el menu de hamburguesa -->
+            <div class="menu-hamburger">
+                <img src="assets/menu.svg" class="menu-img" alt="">
+            </div>
+
+        </section>
+
+    </nav>
+    <!-- Enlace a archivo js -->
+     <script src="js/app.js"></script>
+</body>
+</html>
