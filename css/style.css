@@ -9,11 +9,8 @@
 }
 /* estilo para todos los elementos */
 
-
-
 body {
     font-family: 'Poppins', sans-serif;
-    /* background-color: #cccccc; */
 }
 
 .menu {
@@ -27,7 +24,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     width: 90%;
     max-width: 1200px;
     height: 100%;
@@ -40,18 +36,13 @@ body {
     display: flex;
 }
 
+
 /* le quita los adornos a la lista, posiciona, da tamaño y esconde elementos de las listas o menus */
 .menu-item{
     list-style: none;
     position: relative;
     height: 100%;
-
-    /* variable de cuadro, muestra el elemento */
-    /* --clip: polygon(0 0, 100% 0, 100% 100%, 0% 100%); */
-    
-    /* variable que al parecer desaparece, esconde el elemento */
     --clip: polygon(0 0, 100% 0, 100% 0, 3% 0);
-    /* variable para rotar la imagen [[profundizar en rotate]]*/
     --transform: rotate(-90deg);
 }
 
@@ -62,26 +53,6 @@ body {
     --transform: rotate(0);
 }
 
-.menu-arrow {
-    transform: var(--transform);
-    transition: transform .3s;
-    /* estilos de los desplegables */
-    display: block;
-    margin-left: 3px;
-}
-
-/* ul dentro de loa ls, (submenu), se le deja la custom property para que desaparesca los submnus */
-.menu-nesting{
-    list-style: none;
-    transition: clip-path .3s;
-    clip-path: var(--clip);
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: max-content;
-    transform: translateY(100%);
-    background-color: #1A202C;
-}
 
 /* Estilos de los elementos del menu */
 .menu-link {
@@ -97,6 +68,25 @@ body {
     background-color: #5e7094;
 }
 
+.menu-arrow {
+    transform: var(--transform);
+    transition: transform .3s;
+    display: block;
+    margin-left: 3px;
+}
+
+/* ul dentro de loa ls, (submenu), se le deja la custom property para que desaparesca los submnus */
+.menu-nesting{
+    list-style: none;
+    transition: clip-path .3s;
+    clip-path: var(--clip);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: max-content;
+    transform: translateY(100%);
+    background-color: #000;
+}
 
 /* estilos para los elemetos del submenu */
 .menu-link--inside {
@@ -124,9 +114,22 @@ body {
 
 /* Ajustar a resolucion pequeña */
 @media (max-width:800px) {
-    /* Muestra en pantalla el menu hamburger */
     .menu-hamburger {
         display: flex;
+    }
+
+    .menu-item {
+        --clip: 0;
+        overflow: hidden;
+    }
+
+    .menu-item--active {
+        --transform: rotate(0);
+        --blackground: #5e7094;
+    }
+
+    .menu-item--show {
+        background-color: var(--blackground);
     }
 
     /* estilos para el menu, se va a desplegar */
@@ -141,5 +144,37 @@ body {
         overflow-y: auto;
         display: grid;
         grid-auto-rows: max-content;
+        transform: translateX(100%);
+    }
+
+    .menu-links--show {
+        transform: unset;
+        width: 100%;
+    }
+
+    .menu-link {
+        padding: 25px 0;
+        padding-left: 30px ;
+        height: auto;
+    }
+
+    .menu-arrow {
+        margin-left: auto;
+        margin-right: 20px;
+    }
+
+    .menu-nesting {
+        display: grid;
+        position: unset;
+        width: 100%;
+        transform: translateY(0);
+        height: 0;
+        transition: height .3s;
+    }
+
+    .menu-link--inside {
+        width: 90%;
+        margin-left: auto;
+        border-left: 1px solid #798499;
     }
 }
